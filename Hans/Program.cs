@@ -1,12 +1,9 @@
-﻿
-
-using DSharpPlus;
+﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using Hans.BasicCommands;
-using Hans.SlashCommands;
 
 namespace Hans
 {
@@ -41,9 +38,6 @@ namespace Hans
 
             _Command = _Client.UseCommandsNext(commandConfig);
             _Command.RegisterCommands<FundamentalCommands>();
-
-            var SlashCommand = _Client.UseSlashCommands();
-            SlashCommand.RegisterCommands<SimpleSlashCommands>(944959463310385162);
 
             await _Client.ConnectAsync();
             await Task.Delay(-1);
