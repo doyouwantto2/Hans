@@ -4,6 +4,7 @@ using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
 using Hans.BasicCommands;
+using Hans.Help;
 
 namespace Hans
 {
@@ -22,7 +23,7 @@ namespace Hans
 
             var commandConfig = new CommandsNextConfiguration()
             {
-                StringPrefixes = new[] { "!" }
+                StringPrefixes = new[] { "H!" }
             };
 
             _Client = new DiscordClient(clientConfig);
@@ -38,6 +39,7 @@ namespace Hans
 
             _Command = _Client.UseCommandsNext(commandConfig);
             _Command.RegisterCommands<FundamentalCommands>();
+            _Command.RegisterCommands<SupportCommands>();
 
             await _Client.ConnectAsync();
             await Task.Delay(-1);
